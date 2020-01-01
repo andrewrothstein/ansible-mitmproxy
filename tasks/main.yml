@@ -1,0 +1,56 @@
+---
+- name: resolve platform specific vars
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+      skip: true
+      paths:
+        - '{{ role_path }}/vars'
+- name: check for existing install
+  become: yes
+  stat:
+    path: '{{ mitmproxy_install_dir }}'
+  changed_when: False
+  register: mitmproxy_binary
+- when: not mitmproxy_binary.stat.exists
+  block:
+    - name: download
+      become: yes
+      become_user: root
+      get_url:
+        url: '{{ mitmproxy_url }}'
+        dest: /tmp/{{ mitmproxy_archive }}
+        checksum: '{{ mitmproxy_checksum }}'
+        mode: 0644
+    - name: mkdir
+      become: yes
+      become_user: root
+      file:
+        path: '{{ mitmproxy_install_dir }}'
+        state: directory
+        mode: 0755
+    - name: unarchive
+      become: yes
+      become_user: root
+      unarchive:
+        remote_src: yes
+        src: /tmp/{{ mitmproxy_archive }}
+        dest: '{{ mitmproxy_install_dir }}'
+        creates: '{{ mitmproxy_installed_exe }}'
+  always:
+    - name: cleanup
+      become: yes
+      become_user: root
+      file:
+        path: /tmp/{{ mitmproxy_archive }}
+        state: absent
+- name: link
+  become: yes
+  become_user: root
+  file:
+    src: '{{ mitmproxy_installed_exe }}'
+    dest: '{{ mitmproxy_link }}'
+    state: link
