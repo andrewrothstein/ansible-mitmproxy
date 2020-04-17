@@ -27,4 +27,4 @@ dl_ver() {
     dl $ver windows zip
 }
 
-dl_ver ${1:-5.0.1}
+dl_ver ${1:-5.1.1}
