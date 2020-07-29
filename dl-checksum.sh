@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-#set -x
+set -e
 DIR=~/Downloads
 MIRROR=https://snapshots.mitmproxy.org
 
@@ -27,4 +27,4 @@ dl_ver() {
     dl $ver windows zip
 }
 
-dl_ver ${1:-5.1.1}
+dl_ver ${1:-5.2}
