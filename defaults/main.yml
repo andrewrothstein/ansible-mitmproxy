@@ -1,6 +1,6 @@
 ---
 # defaults file for mitmproxy
-mitmproxy_ver: 5.2
+mitmproxy_ver: '5.2'
 mitmproxy_mirror: https://snapshots.mitmproxy.org
 mitmproxy_os: linux
 mitmproxy_parent_install_dir: /usr/local
