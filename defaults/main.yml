@@ -1,6 +1,6 @@
 ---
 # defaults file for mitmproxy
-mitmproxy_ver: '5.2'
+mitmproxy_ver: '5.3.0'
 mitmproxy_mirror: https://snapshots.mitmproxy.org
 mitmproxy_os: linux
 mitmproxy_parent_install_dir: /usr/local
@@ -26,3 +26,10 @@ mitmproxy_checksums:
     osx: sha256:4048ea9249e105f172755fe202058f03572e1a457f3c486015c16e133c6e6eca
     # https://snapshots.mitmproxy.org/5.2/mitmproxy-5.2-windows.zip
     windows: sha256:3bab5d3b1fe8e0c92ff1b0b064f58f1645403da5186ecd9b2f10c83ac2d86c82
+  '5.3.0':
+    # https://snapshots.mitmproxy.org/5.3.0/mitmproxy-5.3.0-linux.tar.gz
+    linux: sha256:ca627ff0212522c07cd2413727844bba241d27fa17ce28de853eaceaa354ecfa
+    # https://snapshots.mitmproxy.org/5.3.0/mitmproxy-5.3.0-osx.tar.gz
+    osx: sha256:76d65f38a3e0598f71109b6f44d8e9e3e5c47d2d5fb970763fb47a915c874293
+    # https://snapshots.mitmproxy.org/5.3.0/mitmproxy-5.3.0-windows.zip
+    windows: sha256:fbcf0f0b03ec9a7e548a150032fc0f73d08593f207ce0ef628f8ba8c5e203472
