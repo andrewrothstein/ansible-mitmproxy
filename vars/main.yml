@@ -1,6 +1,7 @@
 ---
 # vars file for mitmproxy
 mitmproxy_archive: mitmproxy-{{ mitmproxy_ver }}-{{ mitmproxy_os }}.{{ mitmproxy_archive_type | default("tar.gz") }}
+mitmproxy_tmp_archive: /tmp/{{ mitmproxy_archive }}
 mitmproxy_url: '{{ mitmproxy_mirror }}/{{ mitmproxy_ver }}/{{ mitmproxy_archive }}'
 mitmproxy_checksum: '{{ mitmproxy_checksums[mitmproxy_ver][mitmproxy_os] }}'
 
