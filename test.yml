@@ -5,6 +5,8 @@
   tasks:
   - command: /usr/local/bin/mitmproxy --version
     register: mitmproxy_test_output
+    environment:
+      LANG: en_US.UTF-8
   - name: mitmproxy --version
     debug:
       msg: '{{ mitmproxy_test_output.stdout }}'
