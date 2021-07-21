@@ -1,6 +1,6 @@
 andrewrothstein.mitmproxy
 =========
-[![Build Status](https://travis-ci.org/andrewrothstein/ansible-mitmproxy.svg?branch=master)](https://travis-ci.org/andrewrothstein/ansible-mitmproxy)
+![Build Status](https://github.com/andrewrothstein/ansible-mitmproxy/actions/workflows/build.yml/badge.svg)
 
 Installs [mitmproxy](https://mitmproxy.org/).
 
