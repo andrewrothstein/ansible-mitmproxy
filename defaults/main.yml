@@ -1,6 +1,6 @@
 ---
 # defaults file for mitmproxy
-mitmproxy_ver: 7.0.0
+mitmproxy_ver: 7.0.1
 mitmproxy_mirror: https://snapshots.mitmproxy.org
 mitmproxy_os: linux
 mitmproxy_parent_install_dir: /usr/local
@@ -54,3 +54,10 @@ mitmproxy_checksums:
     osx: sha256:06d03453c97b7476434c6652f7104792f1c09f457dfa89e8159374225e35a3dc
     # https://snapshots.mitmproxy.org/7.0.0/mitmproxy-7.0.0-windows.zip
     windows: sha256:df4077ae025efeddfea51e2fddb5c6bdef1e8b90a1b0123c0813b1644763458b
+  '7.0.1':
+    # https://snapshots.mitmproxy.org/7.0.1/mitmproxy-7.0.1-linux.tar.gz
+    linux: sha256:d703bc69c5aad1dc993b7d7198706d8f7285848ab1eb173ac910080f05aa2e7d
+    # https://snapshots.mitmproxy.org/7.0.1/mitmproxy-7.0.1-osx.tar.gz
+    osx: sha256:c144eecdbf1da396de6f40f80dfbd5df14332ed58a78dfde3bd93bb0c4846999
+    # https://snapshots.mitmproxy.org/7.0.1/mitmproxy-7.0.1-windows.zip
+    windows: sha256:aa8838a1ba89a737e320a6e1b2f7fb1e48461999bd767600493b7412ce6eb7d0
