@@ -12,7 +12,7 @@ dl() {
     local url=$MIRROR/${ver}/${file}
 
     if [ ! -e $lfile ]; then
-        wget -q -O $lfile $url
+        curl -sSLf -o $lfile $url
     fi
 
     printf "    # %s\n" $url
@@ -27,4 +27,4 @@ dl_ver() {
     dl $ver windows zip
 }
 
-dl_ver ${1:-7.0.4}
+dl_ver ${1:-8.0.0}
