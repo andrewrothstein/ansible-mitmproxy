@@ -1,4 +1,6 @@
 ---
+- include_role:
+    name: andrewrothstein.unarchive-deps
 - name: resolve platform specific vars
   include_vars: '{{ item }}'
   with_first_found:
@@ -10,7 +12,7 @@
       paths:
         - '{{ role_path }}/vars'
 - name: check for existing install in {{ mitmproxy_install_dir }}
-  become: yes
+  become: true
   stat:
     path: '{{ mitmproxy_install_dir }}'
   changed_when: False
@@ -18,7 +20,7 @@
 - when: not mitmproxy_binary.stat.exists
   block:
     - name: downloading {{ mitmproxy_url }} to {{ mitmproxy_tmp_archive }}
-      become: yes
+      become: true
       become_user: root
       get_url:
         url: '{{ mitmproxy_url }}'
@@ -26,29 +28,29 @@
         checksum: '{{ mitmproxy_checksum }}'
         mode: 0644
     - name: mkdir {{ mitmproxy_install_dir }}
-      become: yes
+      become: true
       become_user: root
       file:
         path: '{{ mitmproxy_install_dir }}'
         state: directory
         mode: 0755
     - name: unarchive {{ mitmproxy_tmp_archive }} to {{ mitmproxy_install_dir }}
-      become: yes
+      become: true
       become_user: root
       unarchive:
-        remote_src: yes
+        remote_src: true
         src: '{{ mitmproxy_tmp_archive }}'
         dest: '{{ mitmproxy_install_dir }}'
         creates: '{{ mitmproxy_installed_exe }}'
   always:
     - name: rm {{ mitmproxy_tmp_archive }}
-      become: yes
+      become: true
       become_user: root
       file:
         path: '{{ mitmproxy_tmp_archive }}'
         state: absent
 - name: link {{ mitmproxy_link }} to {{ mitmproxy_installed_exe }}
-  become: yes
+  become: true
   become_user: root
   file:
     src: '{{ mitmproxy_installed_exe }}'

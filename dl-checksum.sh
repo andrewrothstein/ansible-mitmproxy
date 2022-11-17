@@ -23,8 +23,8 @@ dl_ver() {
     local ver=$1
     printf "  '%s':\n" $ver
     dl $ver linux
-    dl $ver osx
+    dl $ver macos
     dl $ver windows zip
 }
 
-dl_ver ${1:-8.1.1}
+dl_ver ${1:-9.0.1}

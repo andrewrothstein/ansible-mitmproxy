@@ -1,105 +1,17 @@
 ---
 # defaults file for mitmproxy
-mitmproxy_ver: 8.1.1
+mitmproxy_ver: 9.0.1
 mitmproxy_mirror: https://snapshots.mitmproxy.org
-mitmproxy_os: linux
 mitmproxy_parent_install_dir: /usr/local
+mitmproxy_os_map:
+  Linux: linux
+  Darwin: macos
+  Windows: windows
 mitmproxy_checksums:
-  '5.0.1':
-    # https://snapshots.mitmproxy.org/5.0.1/mitmproxy-5.0.1-linux.tar.gz
-    linux: sha256:32784cee16f23c0fb413fb3100c800de6708b9ef868ff012d3e63e93d5681d11
-    # https://snapshots.mitmproxy.org/5.0.1/mitmproxy-5.0.1-osx.tar.gz
-    osx: sha256:af8e1cd463156c72b2d4ceabd9458db711d7aa8148eb354a6fee5f1b94cdc63a
-    # https://snapshots.mitmproxy.org/5.0.1/mitmproxy-5.0.1-windows.zip
-    windows: sha256:38bcf95d95912f86572840eb29005075279ef16d42d647099f1347dde706ed22
-  '5.1.1':
-    # https://snapshots.mitmproxy.org/5.1.1/mitmproxy-5.1.1-linux.tar.gz
-    linux: sha256:f7db3439abdce411ca8f0125bdcc2a3d8923487b79fc3d57ee15aa0ba21ffdc0
-    # https://snapshots.mitmproxy.org/5.1.1/mitmproxy-5.1.1-osx.tar.gz
-    osx: sha256:147011483150653409c202ab0cda6dc77e215dbc8a09b197580454e514988791
-    # https://snapshots.mitmproxy.org/5.1.1/mitmproxy-5.1.1-windows.zip
-    windows: sha256:cf141365fa2143bcd61a4821045e7a85aa89cbe81d06104a3c3a0f83ad10c4cb
-  '5.2':
-    # https://snapshots.mitmproxy.org/5.2/mitmproxy-5.2-linux.tar.gz
-    linux: sha256:4b792932e045c3e7a3320dcf7d125f8e8d97169d51cfad0941967fd6b073473e
-    # https://snapshots.mitmproxy.org/5.2/mitmproxy-5.2-osx.tar.gz
-    osx: sha256:4048ea9249e105f172755fe202058f03572e1a457f3c486015c16e133c6e6eca
-    # https://snapshots.mitmproxy.org/5.2/mitmproxy-5.2-windows.zip
-    windows: sha256:3bab5d3b1fe8e0c92ff1b0b064f58f1645403da5186ecd9b2f10c83ac2d86c82
-  '5.3.0':
-    # https://snapshots.mitmproxy.org/5.3.0/mitmproxy-5.3.0-linux.tar.gz
-    linux: sha256:ca627ff0212522c07cd2413727844bba241d27fa17ce28de853eaceaa354ecfa
-    # https://snapshots.mitmproxy.org/5.3.0/mitmproxy-5.3.0-osx.tar.gz
-    osx: sha256:76d65f38a3e0598f71109b6f44d8e9e3e5c47d2d5fb970763fb47a915c874293
-    # https://snapshots.mitmproxy.org/5.3.0/mitmproxy-5.3.0-windows.zip
-    windows: sha256:fbcf0f0b03ec9a7e548a150032fc0f73d08593f207ce0ef628f8ba8c5e203472
-  '6.0.1':
-    # https://snapshots.mitmproxy.org/6.0.1/mitmproxy-6.0.1-linux.tar.gz
-    linux: sha256:556849e9ca0249ca1118e6c995e4c857a62ba68b0de7367df757daaa807d8dc8
-    # https://snapshots.mitmproxy.org/6.0.1/mitmproxy-6.0.1-osx.tar.gz
-    osx: sha256:e8ede7d28063423f2af5fe3e998aaaaf5edf29049288cf2d77d672a436f99c71
-    # https://snapshots.mitmproxy.org/6.0.1/mitmproxy-6.0.1-windows.zip
-    windows: sha256:9b56c02ac32080c632fbc4d2202691d1c9b78c47b6e6d20a09980a5bc7ad086c
-  '6.0.2':
-    # https://snapshots.mitmproxy.org/6.0.2/mitmproxy-6.0.2-linux.tar.gz
-    linux: sha256:86e96c9a6f50f2863e69dcdfe91c38b4f0844ee1ab0037373689db8aaacb5191
-    # https://snapshots.mitmproxy.org/6.0.2/mitmproxy-6.0.2-osx.tar.gz
-    osx: sha256:ad47f7e1466ccf4e660c9845d2fe61890bddf991d46cd1061d0c2cefc1a4ac44
-    # https://snapshots.mitmproxy.org/6.0.2/mitmproxy-6.0.2-windows.zip
-    windows: sha256:ca4044c70612c3734459d2b0bdba181b7d6a8fba16134bd1ea46e4c1e5f486a6
-  '7.0.0':
-    # https://snapshots.mitmproxy.org/7.0.0/mitmproxy-7.0.0-linux.tar.gz
-    linux: sha256:9d5d2062f1616b4c309ca581595ebc993bb2d9024441b4450987d86f794fef13
-    # https://snapshots.mitmproxy.org/7.0.0/mitmproxy-7.0.0-osx.tar.gz
-    osx: sha256:06d03453c97b7476434c6652f7104792f1c09f457dfa89e8159374225e35a3dc
-    # https://snapshots.mitmproxy.org/7.0.0/mitmproxy-7.0.0-windows.zip
-    windows: sha256:df4077ae025efeddfea51e2fddb5c6bdef1e8b90a1b0123c0813b1644763458b
-  '7.0.1':
-    # https://snapshots.mitmproxy.org/7.0.1/mitmproxy-7.0.1-linux.tar.gz
-    linux: sha256:d703bc69c5aad1dc993b7d7198706d8f7285848ab1eb173ac910080f05aa2e7d
-    # https://snapshots.mitmproxy.org/7.0.1/mitmproxy-7.0.1-osx.tar.gz
-    osx: sha256:c144eecdbf1da396de6f40f80dfbd5df14332ed58a78dfde3bd93bb0c4846999
-    # https://snapshots.mitmproxy.org/7.0.1/mitmproxy-7.0.1-windows.zip
-    windows: sha256:aa8838a1ba89a737e320a6e1b2f7fb1e48461999bd767600493b7412ce6eb7d0
-  '7.0.2':
-    # https://snapshots.mitmproxy.org/7.0.2/mitmproxy-7.0.2-linux.tar.gz
-    linux: sha256:457af7cdccfb9fe74870725e700c90ee2fd9bcba2e37f36940147d26507d5c49
-    # https://snapshots.mitmproxy.org/7.0.2/mitmproxy-7.0.2-osx.tar.gz
-    osx: sha256:51b51bd21ba76dbe59255853d025658ab20a38d37da625dde848ba9208ab87e5
-    # https://snapshots.mitmproxy.org/7.0.2/mitmproxy-7.0.2-windows.zip
-    windows: sha256:94dc7e4e80ec939cff830fc484d202a86f294c663233344b05569ef46fb63404
-  '7.0.3':
-    # https://snapshots.mitmproxy.org/7.0.3/mitmproxy-7.0.3-linux.tar.gz
-    linux: sha256:97a957ecf39932cb7a57cb4e30ee97cd254060f6c81a79da3378a37eff99a651
-    # https://snapshots.mitmproxy.org/7.0.3/mitmproxy-7.0.3-osx.tar.gz
-    osx: sha256:7a539e3311fc8e56b8c51d4a7bcbb155849677de857f8db0b556acb33b050f76
-    # https://snapshots.mitmproxy.org/7.0.3/mitmproxy-7.0.3-windows.zip
-    windows: sha256:6124faaf9697e954673b7d263ec06f07d2e689d580b91adb58c999452bf0137a
-  '7.0.4':
-    # https://snapshots.mitmproxy.org/7.0.4/mitmproxy-7.0.4-linux.tar.gz
-    linux: sha256:3968ac91672a472cf37554e70d167ddbd5a03f27b1ebf9f41652c13475a04320
-    # https://snapshots.mitmproxy.org/7.0.4/mitmproxy-7.0.4-osx.tar.gz
-    osx: sha256:8db7e246bd8d26082ab031d7c4d872f67d9d96381ac87e81a821f85bb00e00bc
-    # https://snapshots.mitmproxy.org/7.0.4/mitmproxy-7.0.4-windows.zip
-    windows: sha256:1301a1759605ff549a0fc550863b23318a2328f0f851bee65446fc6ff10b2396
-  '8.0.0':
-    # https://snapshots.mitmproxy.org/8.0.0/mitmproxy-8.0.0-linux.tar.gz
-    linux: sha256:4d97bc0ec05f05a437d8210c696d950ba40b67e39ef3e7f55c49404670c8f427
-    # https://snapshots.mitmproxy.org/8.0.0/mitmproxy-8.0.0-osx.tar.gz
-    osx: sha256:5e73d90705506d8ca15b0ff46c691e3472da4ae0f63db47176b47342d5c865ec
-    # https://snapshots.mitmproxy.org/8.0.0/mitmproxy-8.0.0-windows.zip
-    windows: sha256:c52eef571257677c4634b50faeab5fa2cdd617d60ae093bc5128990429afb6d3
-  '8.1.0':
-    # https://snapshots.mitmproxy.org/8.1.0/mitmproxy-8.1.0-linux.tar.gz
-    linux: sha256:b4e2a119931a5cb905c4991e1754bae89e6b1a7594866fbf8a2b53c994008626
-    # https://snapshots.mitmproxy.org/8.1.0/mitmproxy-8.1.0-osx.tar.gz
-    osx: sha256:040a9bb9d2f284344a6e237a92b7ebfcac67b5caae45d41357b209b840276fd9
-    # https://snapshots.mitmproxy.org/8.1.0/mitmproxy-8.1.0-windows.zip
-    windows: sha256:5fb026ea45b1f69c732d191722aaa3b51a09d1e321e1b8e3b9f2a7d7f1554f20
-  '8.1.1':
-    # https://snapshots.mitmproxy.org/8.1.1/mitmproxy-8.1.1-linux.tar.gz
-    linux: sha256:b48f22c518ca4b71a458e8f7f28d1089257559d8bf71d9443cf8504941ca4fc1
-    # https://snapshots.mitmproxy.org/8.1.1/mitmproxy-8.1.1-osx.tar.gz
-    osx: sha256:62a997e2bcb722feaa2ce0fb51a1da214212b2a90a4fee8feb0aad290c94c8bd
-    # https://snapshots.mitmproxy.org/8.1.1/mitmproxy-8.1.1-windows.zip
-    windows: sha256:6ed2e0f3d2c945245a96974490d85ce124228003b98b50f2a4c68d5f442ee887
+  '9.0.1':
+    # https://snapshots.mitmproxy.org/9.0.1/mitmproxy-9.0.1-linux.tar.gz
+    linux: sha256:5a33c10d7f65014470631715d10410dd8c5b0ffdc7ffa9266e20c3de77ac8271
+    # https://snapshots.mitmproxy.org/9.0.1/mitmproxy-9.0.1-macos.tar.gz
+    macos: sha256:65b2b06ec8283df58280659c7e35b6149ffb4ee5d0ec10ddbc88cc62d47a1f73
+    # https://snapshots.mitmproxy.org/9.0.1/mitmproxy-9.0.1-windows.zip
+    windows: sha256:83ee832ae3d44ac76f2fbbef5751500aa0ccc08f03ef226d42d306517612bb2c
