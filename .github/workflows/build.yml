@@ -23,7 +23,6 @@ jobs:
         os:
         - archlinux_latest
         - debian_bullseye
-        - debian_buster
         - fedora_36
         - fedora_37
         - rockylinux_8
