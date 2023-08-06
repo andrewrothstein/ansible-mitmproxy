@@ -1,6 +1,6 @@
 ---
 # defaults file for mitmproxy
-mitmproxy_ver: 9.0.1
+mitmproxy_ver: 10.0.0
 mitmproxy_mirror: https://snapshots.mitmproxy.org
 mitmproxy_parent_install_dir: /usr/local
 mitmproxy_os_map:
@@ -15,3 +15,10 @@ mitmproxy_checksums:
     macos: sha256:65b2b06ec8283df58280659c7e35b6149ffb4ee5d0ec10ddbc88cc62d47a1f73
     # https://snapshots.mitmproxy.org/9.0.1/mitmproxy-9.0.1-windows.zip
     windows: sha256:83ee832ae3d44ac76f2fbbef5751500aa0ccc08f03ef226d42d306517612bb2c
+  '10.0.0':
+    # https://snapshots.mitmproxy.org/10.0.0/mitmproxy-10.0.0-linux.tar.gz
+    linux: sha256:a92ba70c0e947890d1c4a8ecd68257688e0db793ae3d9e2e78df013bbc2b7c44
+    # https://snapshots.mitmproxy.org/10.0.0/mitmproxy-10.0.0-macos.tar.gz
+    macos: sha256:85da544ea0273df1a06d529d7f410e550dc2de541dbb5b6adf20f7936ac00c7e
+    # https://snapshots.mitmproxy.org/10.0.0/mitmproxy-10.0.0-windows.zip
+    windows: sha256:31028ee752e1a79081e8e93f135ba320f21b66475b76781e5c5419040a1cfc79
