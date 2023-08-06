@@ -1,6 +1,6 @@
 ---
 - include_role:
-    name: andrewrothstein.unarchive-deps
+    name: andrewrothstein.unarchivedeps
 - name: resolve platform specific vars
   include_vars: '{{ item }}'
   with_first_found:
@@ -15,7 +15,7 @@
   become: true
   stat:
     path: '{{ mitmproxy_install_dir }}'
-  changed_when: False
+  changed_when: false
   register: mitmproxy_binary
 - when: not mitmproxy_binary.stat.exists
   block:
