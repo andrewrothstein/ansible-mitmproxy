@@ -1,10 +1,12 @@
 ---
 # vars file for mitmproxy
 mitmproxy_os: '{{ mitmproxy_os_map[ansible_system] }}'
-mitmproxy_archive: mitmproxy-{{ mitmproxy_ver }}-{{ mitmproxy_os }}.{{ mitmproxy_archive_type | default("tar.gz") }}
-mitmproxy_tmp_archive: /tmp/{{ mitmproxy_archive }}
+mitmproxy_arch: '{{ mitmproxy_arch_map[ansible_architecture] }}'
+mitmproxy_platform: '{{ mitmproxy_os }}-{{ mitmproxy_arch }}'
+mitmproxy_archive: mitmproxy-{{ mitmproxy_ver }}-{{ mitmproxy_platform }}.{{ mitmproxy_archive_type | default("tar.gz") }}
+mitmproxy_tmp_archive: '{{ mitmproxy_tmp_dir | default("/tmp") }}/{{ mitmproxy_archive }}'
 mitmproxy_url: '{{ mitmproxy_mirror }}/{{ mitmproxy_ver }}/{{ mitmproxy_archive }}'
-mitmproxy_checksum: '{{ mitmproxy_checksums[mitmproxy_ver][mitmproxy_os] }}'
+mitmproxy_checksum: '{{ mitmproxy_checksums[mitmproxy_ver][mitmproxy_platform] }}'
 
 mitmproxy_install_dir: '{{ mitmproxy_parent_install_dir }}/mitmproxy-{{ mitmproxy_ver }}'
 mitmproxy_installed_exe: '{{ mitmproxy_install_dir }}/mitmproxy'

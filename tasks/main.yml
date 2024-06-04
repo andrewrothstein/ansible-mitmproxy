@@ -1,8 +1,6 @@
 ---
-- include_role:
-    name: andrewrothstein.unarchivedeps
-- name: resolve platform specific vars
-  include_vars: '{{ item }}'
+- name: Resolve platform specific vars
+  ansible.builtin.include_vars: '{{ item }}'
   with_first_found:
     - files:
         - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
@@ -11,48 +9,52 @@
       skip: true
       paths:
         - '{{ role_path }}/vars'
-- name: check for existing install in {{ mitmproxy_install_dir }}
+- name: Check for existing install in {{ mitmproxy_install_dir }}
   become: true
-  stat:
+  ansible.builtin.stat:
     path: '{{ mitmproxy_install_dir }}'
   changed_when: false
   register: mitmproxy_binary
-- when: not mitmproxy_binary.stat.exists
+- name: Downloading and installing mitproxy
+  when: not mitmproxy_binary.stat.exists
   block:
-    - name: downloading {{ mitmproxy_url }} to {{ mitmproxy_tmp_archive }}
+    - name: Downloading {{ mitmproxy_url }} to {{ mitmproxy_tmp_archive }}
       become: true
       become_user: root
-      get_url:
+      ansible.builtin.get_url:
         url: '{{ mitmproxy_url }}'
         dest: '{{ mitmproxy_tmp_archive }}'
         checksum: '{{ mitmproxy_checksum }}'
-        mode: 0644
-    - name: mkdir {{ mitmproxy_install_dir }}
+        mode: '644'
+    - name: Mkdir {{ mitmproxy_install_dir }}
       become: true
       become_user: root
-      file:
+      ansible.builtin.file:
         path: '{{ mitmproxy_install_dir }}'
         state: directory
-        mode: 0755
-    - name: unarchive {{ mitmproxy_tmp_archive }} to {{ mitmproxy_install_dir }}
+        mode: '755'
+    - name: Installing andrewrothstein.unarchivedeps
+      ansible.builtin.include_role:
+        name: andrewrothstein.unarchivedeps
+    - name: Unarchive {{ mitmproxy_tmp_archive }} to {{ mitmproxy_install_dir }}
       become: true
       become_user: root
-      unarchive:
+      ansible.builtin.unarchive:
         remote_src: true
         src: '{{ mitmproxy_tmp_archive }}'
         dest: '{{ mitmproxy_install_dir }}'
         creates: '{{ mitmproxy_installed_exe }}'
   always:
-    - name: rm {{ mitmproxy_tmp_archive }}
+    - name: Rm {{ mitmproxy_tmp_archive }}
       become: true
       become_user: root
-      file:
+      ansible.builtin.file:
         path: '{{ mitmproxy_tmp_archive }}'
         state: absent
-- name: link {{ mitmproxy_link }} to {{ mitmproxy_installed_exe }}
+- name: Link {{ mitmproxy_link }} to {{ mitmproxy_installed_exe }}
   become: true
   become_user: root
-  file:
+  ansible.builtin.file:
     src: '{{ mitmproxy_installed_exe }}'
     dest: '{{ mitmproxy_link }}'
     state: link
