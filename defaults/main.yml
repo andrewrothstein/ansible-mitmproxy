@@ -1,6 +1,6 @@
 ---
 # defaults file for mitmproxy
-mitmproxy_ver: 10.3.0
+mitmproxy_ver: 11.0.2
 mitmproxy_mirror: https://snapshots.mitmproxy.org
 mitmproxy_parent_install_dir: /usr/local
 mitmproxy_os_map:
@@ -20,3 +20,12 @@ mitmproxy_checksums:
     macos-x86_64: sha256:cb0b6d3ee8c6c566021be2220b71c890a1dd5216610b3689e6d1bcd70676c872
     # https://snapshots.mitmproxy.org/10.3.0/mitmproxy-10.3.0-windows-x86_64.zip
     windows-x86_64: sha256:079d0e69c9d4f5b004511926fccc8d105bdc0f52ccc07512f668e3a8401608b6
+  '11.0.2':
+    # https://snapshots.mitmproxy.org/11.0.2/mitmproxy-11.0.2-linux-x86_64.tar.gz
+    linux-x86_64: sha256:e433cc38f8b2fbb11e4f9719cbe8094bbc407e80d8872dfd89b9528d0a8f8917
+    # https://snapshots.mitmproxy.org/11.0.2/mitmproxy-11.0.2-macos-arm64.tar.gz
+    macos-arm64: sha256:d97a3aa8f615a221e194062683f2097af6878d28b5b51dc7218f77feabbc59ca
+    # https://snapshots.mitmproxy.org/11.0.2/mitmproxy-11.0.2-macos-x86_64.tar.gz
+    macos-x86_64: sha256:31385929fda2d0cc9fdd460f3354e6727241f7fcc707cf33c28ca24627036bc9
+    # https://snapshots.mitmproxy.org/11.0.2/mitmproxy-11.0.2-windows-x86_64.zip
+    windows-x86_64: sha256:410dc16562d07140532ac93b1ddf6aa9f8b776ce74c73cfd44c21bc9db6466e5
